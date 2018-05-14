@@ -1,0 +1,81 @@
+{%
+	set hero = {
+		title: post.get_field('pblHeroTitle'),
+		buttons: post.get_field('pblHeroButtons')
+	}
+%}
+
+{%
+	set data = {
+		id: post.id,
+		data: {
+			page: post,
+			sectionHero: hero,
+			sectionSlider: {
+				title: post.get_field('pblSectionSliderTitle'),
+				tag: post.get_field('pblSectionSliderTag'),
+				images: post.get_field('pblSectionSliderImages'),
+				slides: post.get_field('pblSectionSliderSlides')
+			},
+			sectionGallery: {
+				title: post.get_field('pblSectionGalleryTitle'),
+				subtitle: post.get_field('pblSectionGallerySubtitle'),
+				images: post.get_field('pblSectionGalleryGallery'),
+				link: post.get_field('pblSectionGalleryLink')
+			},
+			sectionCta: {
+				text: post.get_field('pblSectionCtaLink').title,
+				url: post.get_field('pblSectionCtaLink').url
+			},
+			sectionPerks: {
+				title: post.get_field('pblSectionPerksTitle'),
+				subtitle: post.get_field('pblSectionPerksSubtitle'),
+				blocks: post.get_field('pblSectionPerksBlocks')
+			},
+			sectionFacts: {
+				title: post.get_field('pblSectionFactsTitle'),
+				subtitle: post.get_field('pblSectionFactsSubtitle'),
+				blocks: post.get_field('pblSectionFactsBlocks')
+			},
+			sectionRental: {
+				title: post.get_field('pblSectionRentalTitle'),
+				cta: {
+					text: post.get_field('pblSectionRentalCta').title,
+					url: post.get_field('pblSectionRentalCta').url
+				},
+				options: post.get_field('pblSectionRentalOptions')
+			},
+			sectionFaq: {
+				title: post.get_field('pblSectionFaqTitle'),
+				faqs: post.get_field('pblSectionFaqFaqs')
+			}
+		}
+	}
+%}
+
+<main class="main" role="main">
+	<div class="tagprints-pbl-wrap" data-module="pbl-loader">
+		<div id="pbl-hero" class="pbl-hero">
+			<div class="pbl-hero__inner">
+				<div>
+					<h1 id="pbl-hero-text" data-text="{{ hero.title }}"></h1>
+					<ul id="pbl-hero-buttons" class="pbl-hero__buttons">
+						{% for button in hero.buttons %}
+							<li>
+								{% if button.modal %}
+									<a class="btn {{ button.class }}" data-modal="video-modal" href="{{ button.url }}">{{ button.text }}</a>
+								{% else %}
+									<a class="btn {{ button.class }}" href="{{ button.url }}">{{ button.text }}</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<a class="pbl-hero__scroll" data-scroll="#pblSectionSlider"></a>
+			</div>
+		</div>
+		<div id="tagprints-pbl" data-app data-initial-data="{{- data|json_encode|escape('html') -}}">
+
+		</div>
+	</div>
+</main><!-- /.main -->

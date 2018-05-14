@@ -1,0 +1,80 @@
+{
+  "name": "cutlass",
+  "version": "1.0.6",
+  "homepage": "http://zach-adams.com",
+  "authors": [
+    "Zach Adams <zach.adams383@gmail.com>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/vendor"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+    "fontawesome": "~4.4.0",
+    "jquery": "1.12.4",
+    "jquery-ui-bootstrap": "~0.2.5",
+    "lightbox2": "~2.8.1",
+    "modernizr": "^3.3.1",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.3",
+    "flickity": "^1.2.1",
+    "picturefill": "^3.0.2",
+    "jquery-json": "^2.5.1",
+    "waypoints": "^4.0.0",
+    "animate.css": "^3.5.2"
+  },
+  "overrides": {
+    "html5shiv": {
+      "main": []
+    },
+    "respond": {
+      "main": []
+    },
+    "jquery-ui": {
+      "main": []
+    },
+    "flickity": {
+      "main": [
+        "dist/flickity.pkgd.min.js",
+        "dist/flickity.css"
+      ]
+    },
+    "fontawesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/FontAwesome.otf"
+      ]
+    },
+    "modernizr": {
+      "main": [
+        "./modernizr.js"
+      ]
+    },
+    "retina.js": {
+      "main": [
+        "dist/retina.min.js"
+      ]
+    },
+    "jquery-json": {
+      "main": [
+        "dist/jquery.json.min.js"
+      ]
+    },
+    "waypoints": {
+      "main": [
+        "lib/jquery.waypoints.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "1.12.4"
+  }
+}
