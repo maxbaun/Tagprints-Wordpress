@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   proxy:
-    image: steveltn/https-portal:1
+    image: 'steveltn/https-portal:1'
     ports:
       - '80:80'
       - '443:443'
@@ -9,64 +9,58 @@ services:
       - web
     restart: always
     volumes:
-      - ./uploads.conf:/etc/nginx/conf.d/uploads.conf
+      - './uploads.conf:/etc/nginx/conf.d/uploads.conf'
     environment:
-      STAGE: 'production'
-      DOMAINS: 'admin.czonemusic.com -> http://web, www.czonemusic.com -> http://web'
-
+      STAGE: production
+      DOMAINS: 'admin.tagprints.com -> http://web'
   backup:
-    image: tutum/dockup:latest
+    image: 'tutum/dockup:latest'
     environment:
-      - AWS_ACCESS_KEY_ID=AKIAJ4KHLNQTMWUYI34Q
+      - AWS_ACCESS_KEY_ID=AKIAIGPCJ6Q2CXMUH5JQ
       - AWS_DEFAULT_REGION=us-east-1
-      - AWS_SECRET_ACCESS_KEY=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
-      - BACKUP_NAME=czone-backup
+      - AWS_SECRET_ACCESS_KEY=GsMqyW1b6v7GjsFUfCN+GK+DsVYQaDaA/oXTkgD+
+      - BACKUP_NAME=tagprints-backup
       - PATHS_TO_BACKUP=/var/lib/mysql
       - RESTORE=false
-      - S3_BUCKET_NAME=czone-backup
+      - S3_BUCKET_NAME=tagprints-backup
     volumes:
-      - data:/var/lib/mysql
-
+      - 'data:/var/lib/mysql'
   restore:
-    image: tutum/dockup:latest
+    image: 'tutum/dockup:latest'
     environment:
-      - AWS_ACCESS_KEY_ID=AKIAJ4KHLNQTMWUYI34Q
+      - AWS_ACCESS_KEY_ID=AKIAIGPCJ6Q2CXMUH5JQ
       - AWS_DEFAULT_REGION=us-east-1
-      - AWS_SECRET_ACCESS_KEY=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
-      - BACKUP_NAME=czone-backup
+      - AWS_SECRET_ACCESS_KEY=GsMqyW1b6v7GjsFUfCN+GK+DsVYQaDaA/oXTkgD+
+      - BACKUP_NAME=tagprints-backup
       - PATHS_TO_BACKUP=/var/lib/mysql
       - RESTORE=true
-      - S3_BUCKET_NAME=czone-backup
+      - S3_BUCKET_NAME=tagprints-backup
     volumes:
-      - data:/var/lib/mysql
-
+      - 'data:/var/lib/mysql'
   mysql:
     environment:
-      MYSQL_DATABASE: czone
-      MYSQL_USER: czone
+      MYSQL_DATABASE: tagprints
+      MYSQL_USER: tagprints
       MYSQL_PASS: rxBj34Zg6rYvhcWc
       MYSQL_ROOT_PASSWORD: T5aWNAaY2Dyttbzy
     image: 'tutum/mysql:latest'
     volumes:
-      - data:/var/lib/mysql
-
+      - 'data:/var/lib/mysql'
   web:
-    image: 'maxbaun/czone:latest'
+    image: 'maxbaun/tagprints-wordpress:latest'
     environment:
-      - WORDPRESS_DB_NAME=czone
-      - WORDPRESS_DB_USER=czone
+      - WORDPRESS_DB_NAME=tagprints
+      - WORDPRESS_DB_USER=tagprints
       - WORDPRESS_DB_PASSWORD=rxBj34Zg6rYvhcWc
     links:
       - mysql
     working_dir: /var/www/html
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - 10001:80
+      - '10001:80'
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: T5aWNAaY2Dyttbzy
-
 volumes:
-    data:
+  data: null
