@@ -52,6 +52,8 @@ services:
       - WORDPRESS_DB_NAME=tagprints
       - WORDPRESS_DB_USER=tagprints
       - WORDPRESS_DB_PASSWORD=rxBj34Zg6rYvhcWc
+    volumes:
+      - 'uploads:/var/www/html/wp-content/uploads'
     links:
       - mysql
     working_dir: /var/www/html
@@ -64,3 +66,4 @@ services:
       MYSQL_ROOT_PASSWORD: T5aWNAaY2Dyttbzy
 volumes:
   data: null
+  uploads: null
