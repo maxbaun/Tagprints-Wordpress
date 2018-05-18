@@ -1,0 +1,100 @@
+About {
+	aboutHero: Group {
+		content: WYSIWYG
+			- h1 for title
+			- p for body tag
+		image: Image 250x250
+	}
+}
+
+Hashtag Printer {
+	hashtagHero: Group {
+		content: WYSIWYG
+			- h1 for title
+		image: Image
+		link: Link
+			- title
+			- url
+	},
+	hashtagSteps: Group {
+		steps: Repeater {
+			image: Image
+			title: Text
+			tag: Text
+		}
+	}
+	hashtagImage: Group {
+		image: Image
+	}
+	hashtagCta: Group {
+		link: Link
+	}
+}
+
+Team Template {
+	teamHero: {
+		image: Image 1600 maxWidth
+		title: Text
+	}
+	teamContent: {
+		content: WYSIWYG
+			- p tag for body
+	}
+	teamMembers: Repeater {
+		image: Image
+		name: Text
+		job: Text
+	}
+	teamCta: Group {
+		link: Link
+		title: Text
+	}
+}
+
+Form Page Template {
+	formpageContent: Group {
+		view : Select (content or image)
+		content: WYSIWYG
+			- h1 for title
+			- h5 for subtitle
+		image: Image
+	}
+	formpageForm: {
+		form: Post Object
+	}
+}
+
+Job Template {
+	jobContent: {
+		content: WYSIWYG
+	}
+	jobImages: {
+		featured: Image
+		images: Gallery
+	}
+	jobForm: {
+		form: Post Object
+	}
+}
+
+Contact Template {
+	contactInfo: {
+		phone: Text
+		email: Text
+	}
+	contactForm: {
+		image: Image
+		form: Post Object
+	}
+	contactLocations: {
+		locations: Repeater {
+			title
+			address
+			lat
+			lng
+			directions
+		}
+	}
+}
+
+Default Tempalte -> render content inside white section

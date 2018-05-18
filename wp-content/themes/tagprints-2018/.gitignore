@@ -4,9 +4,6 @@
 
 /wordpress/
 
-/vendor/
-/dist
-
 sitemap.xml
 
 sitemap.xml.gz
@@ -27,10 +24,9 @@ wp-content/db.php
 wp-content/object-cache.php
 wp-content/w3tc-config/
 
-node_modules/*
-bower_components/*
+node_modules
+bower_components
 .sass-cache/*
-./vendor/
 
 /uploads
 

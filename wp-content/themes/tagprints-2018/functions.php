@@ -20,32 +20,33 @@ define('DISALLOW_FILE_MODS', true); // Don't allow plugin uploads
 /* End wp customization */
 
 $cutlass_includes = array(
-	'inc/assets.php',                  // Custom widget areas
-	'inc/replace-images.php',			// replace images for dev
-	'inc/utils.php',                  // Utility functions
-	'inc/deregister-scripts.php',                   // deregister scripts
-	'inc/init.php',                   // Initial theme setup and constants
-	'inc/theme-settings.php',                  // Custom theme settings
-	'inc/component-scripts.php',                   // Initial react theme setup
-	'inc/our-work-component.php',                   // Initial react theme setup
-	'inc/pbl/pbl-component.php',                   // PBL component
-	'inc/react-app.php',                   // Initial react theme setup
-	'inc/config.php',                 // Configuration
-	'inc/activation.php',             // Theme activation
-	'inc/titles.php',                 // Page titles
-	'inc/wp_bootstrap_navwalker.php', // Bootstrap Nav Walker (From https://github.com/twittem/wp-bootstrap-navwalker)
-	'inc/gallery.php',                // Custom [gallery] modifications
-	'inc/comments.php',               // Custom comments modifications
-	'inc/extras.php',                 // Custom functions
-	'inc/image-sizes.php',            // custom image sizes
-	'inc/shortcodes/index.php',               // Custom shortcodes
-	'inc/custom-post-types/case-study.php',   // Custom case study post type
-	'inc/custom-post-types/icons.php',   // Custom icon post type
-	'inc/custom-post-types/lookbook.php',   // Custom icon post type
-	'inc/widgets.php',                  // Custom widget areas
-	'inc/widgets/index.php',                  // Custom widgets
-	'inc/s3.php',                  // Custom widgets
-	'inc/check-plugins.php',                  // Custom widgets
+	'inc/assets.php',
+	'inc/replace-images.php',
+	'inc/utils.php',
+	'inc/deregister-scripts.php',
+	'inc/init.php',
+	'inc/theme-settings.php',
+	'inc/component-scripts.php',
+	'inc/our-work-component.php',
+	'inc/pbl/pbl-component.php',
+	'inc/react-app.php',
+	'inc/config.php',
+	'inc/activation.php',
+	'inc/titles.php',
+	'inc/wp_bootstrap_navwalker.php',
+	'inc/gallery.php',
+	'inc/comments.php',
+	'inc/extras.php',
+	'inc/image-sizes.php',
+	'inc/shortcodes/index.php',
+	'inc/custom-post-types/case-study.php',
+	'inc/custom-post-types/icons.php',
+	'inc/custom-post-types/lookbook.php',
+	'inc/widgets.php',
+	'inc/widgets/index.php',
+	'inc/s3.php',
+	'inc/check-plugins.php',
+	'inc/api.php'
 );
 
 foreach ($cutlass_includes as $file) {
