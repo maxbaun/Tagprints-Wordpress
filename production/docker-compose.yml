@@ -54,6 +54,8 @@ services:
       - WORDPRESS_DB_PASSWORD=rxBj34Zg6rYvhcWc
     volumes:
       - 'uploads:/var/www/html/wp-content/uploads'
+    ports:
+      - '80:80'
     links:
       - mysql
     working_dir: /var/www/html
