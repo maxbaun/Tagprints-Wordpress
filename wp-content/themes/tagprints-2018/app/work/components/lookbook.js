@@ -5,7 +5,13 @@ import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import {Link} from 'react-router-dom';
 import {List, Map} from 'immutable';
 
-import {noop, unique, isLoading, isMobile, scrollToTop} from '../../utils/componentHelpers';
+import {
+	noop,
+	unique,
+	isLoading,
+	isMobile,
+	scrollToTop
+} from '../../utils/componentHelpers';
 import Categories from './categories';
 import Placeholder from './placeholder';
 import LookbookItem from './lookbookItem';
@@ -56,7 +62,10 @@ class Home extends Component {
 		document.body.style.overflow = 'scroll';
 
 		// If there are no more to load
-		if (typeof this.props.meta.getIn(['lookbook', 'hasMore']) === 'undefined') {
+		if (
+			typeof this.props.meta.getIn(['lookbook', 'hasMore']) ===
+			'undefined'
+		) {
 			this.getLookbooks();
 		}
 
@@ -68,7 +77,11 @@ class Home extends Component {
 		const activeLookbook = this.getActiveCategory();
 
 		return lookbooks.filter(i => {
-			if (activeLookbook && i && i.get('lookbook') === activeLookbook.get('slug')) {
+			if (
+				activeLookbook &&
+				i &&
+				i.get('lookbook') === activeLookbook.get('slug')
+			) {
 				return true;
 			}
 
@@ -82,9 +95,7 @@ class Home extends Component {
 
 	@bind()
 	getPaginatedLookbooks() {
-		return this
-			.getActiveLookbooks()
-			.take(PerPage * this.state.page);
+		return this.getActiveLookbooks().take(PerPage * this.state.page);
 	}
 
 	@bind()
@@ -123,7 +134,9 @@ class Home extends Component {
 	}
 
 	getCategoryBySlug(slug, props = this.props) {
-		return props.categories.get('lookbook').find(c => c.get('slug') === slug);
+		return props.categories
+			.get('lookbook')
+			.find(c => c.get('slug') === slug);
 	}
 
 	@bind()
@@ -166,7 +179,11 @@ class Home extends Component {
 				<div className="our-work-lookbooks">
 					<div className="container">
 						<Categories
-							activeCategory={activeCategory ? parseInt(activeCategory.get('id'), 10) : Number.NaN}
+							activeCategory={
+								activeCategory ?
+									parseInt(activeCategory.get('id'), 10) :
+									Number.NaN
+							}
 							actions={actions}
 							location={location}
 							taxonomy="case-study-category"
@@ -175,7 +192,9 @@ class Home extends Component {
 							onCategoryClick={this.handleCategoryClick}
 						/>
 					</div>
-					{loading ? this.renderLoadingGrid() : this.renderImageGrid()}
+					{loading ?
+						this.renderLoadingGrid() :
+						this.renderImageGrid()}
 				</div>
 			</div>
 		);
@@ -217,7 +236,10 @@ class Home extends Component {
 			<div className="our-work-loading-grid">
 				<ul>
 					{this.defaultImages.map((item, index) => {
-						const color = index === 0 || index % 2 === 0 ? '#3b3b3a' : '#c14e2e';
+						const color =
+							index === 0 || index % 2 === 0 ?
+								'#3b3b3a' :
+								'#c14e2e';
 						return (
 							<li key={item}>
 								<Placeholder
@@ -241,7 +263,9 @@ class Home extends Component {
 	renderEmpty() {
 		return (
 			<div className="our-work-empty">
-				<h3>No images found =( <Link to="/lookbook">Go Back.</Link></h3>
+				<h3>
+					No images found =( <Link to="/lookbook">Go Back.</Link>
+				</h3>
 			</div>
 		);
 	}

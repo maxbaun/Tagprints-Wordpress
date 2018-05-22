@@ -20,11 +20,11 @@ export default class ProductCarousel extends Component {
 
 	static propTypes = {
 		slides: ImmutablePropTypes.list
-	}
+	};
 
 	static defaultProps = {
 		slides: List()
-	}
+	};
 
 	componentDidMount() {
 		this.updateSlider();
@@ -92,8 +92,15 @@ export default class ProductCarousel extends Component {
 									return (
 										<li
 											key={slide.get('id')}
-											className={index === currentIndex ? 'active' : ''}
-											onClick={click(this.handlePaginationClick, index + 1)}
+											className={
+												index === currentIndex ?
+													'active' :
+													''
+											}
+											onClick={click(
+												this.handlePaginationClick,
+												index + 1
+											)}
 										>
 											<span/>
 										</li>
@@ -103,9 +110,16 @@ export default class ProductCarousel extends Component {
 							<div className="swiper-wrapper">
 								{slides.map(slide => {
 									return (
-										<div key={slide.get('id')} className="swiper-slide">
+										<div
+											key={slide.get('id')}
+											className="swiper-slide"
+										>
 											{/* eslint-disable */}
-											<div dangerouslySetInnerHTML={innerHtml(slide.get('content'))}/>
+											<div
+												dangerouslySetInnerHTML={innerHtml(
+													slide.get('content')
+												)}
+											/>
 											{/* eslint-enable */}
 										</div>
 									);
@@ -119,8 +133,15 @@ export default class ProductCarousel extends Component {
 								return (
 									<li
 										key={slide.get('id')}
-										className={index === currentIndex ? 'active' : ''}
-										onClick={click(this.handlePaginationClick, index + 1)}
+										className={
+											index === currentIndex ?
+												'active' :
+												''
+										}
+										onClick={click(
+											this.handlePaginationClick,
+											index + 1
+										)}
 									>
 										<span>{index + 1}</span>
 									</li>

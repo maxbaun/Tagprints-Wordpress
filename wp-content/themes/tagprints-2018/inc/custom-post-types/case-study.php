@@ -112,72 +112,72 @@ function add_case_study_tax() {
 add_action('init', 'add_case_study_tax');
 
 
-// ACF Stuff
+// // ACF Stuff
 
-if (function_exists('acf_add_local_field_group')) {
+// if (function_exists('acf_add_local_field_group')) {
 
-	acf_add_local_field_group(array(
-		'key' => 'group_5a99f03a6aede',
-		'title' => 'Case Study',
-		'fields' => array(
-			array(
-				'key' => 'field_5a99f05862ca1',
-				'label' => 'Logo',
-				'name' => 'logo',
-				'type' => 'textarea',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'tabs' => 'text',
-				'toolbar' => 'full',
-				'media_upload' => 1,
-				'delay' => 0,
-			),
-			array(
-				'key' => 'field_5a99f06c62ca2',
-				'label' => 'Subtitle',
-				'name' => 'subtitle',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'maxlength' => '',
-			),
-		),
-		'location' => array(
-			array(
-				array(
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'case_study',
-				),
-			),
-		),
-		'menu_order' => 0,
-		'position' => 'normal',
-		'style' => 'default',
-		'label_placement' => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen' => '',
-		'active' => 1,
-		'description' => '',
-	));
+// 	acf_add_local_field_group(array(
+// 		'key' => 'group_5a99f03a6aede',
+// 		'title' => 'Case Study',
+// 		'fields' => array(
+// 			array(
+// 				'key' => 'field_5a99f05862ca1',
+// 				'label' => 'Logo',
+// 				'name' => 'logo',
+// 				'type' => 'textarea',
+// 				'instructions' => '',
+// 				'required' => 0,
+// 				'conditional_logic' => 0,
+// 				'wrapper' => array(
+// 					'width' => '',
+// 					'class' => '',
+// 					'id' => '',
+// 				),
+// 				'default_value' => '',
+// 				'tabs' => 'text',
+// 				'toolbar' => 'full',
+// 				'media_upload' => 1,
+// 				'delay' => 0,
+// 			),
+// 			array(
+// 				'key' => 'field_5a99f06c62ca2',
+// 				'label' => 'Subtitle',
+// 				'name' => 'subtitle',
+// 				'type' => 'text',
+// 				'instructions' => '',
+// 				'required' => 0,
+// 				'conditional_logic' => 0,
+// 				'wrapper' => array(
+// 					'width' => '',
+// 					'class' => '',
+// 					'id' => '',
+// 				),
+// 				'default_value' => '',
+// 				'placeholder' => '',
+// 				'prepend' => '',
+// 				'append' => '',
+// 				'maxlength' => '',
+// 			),
+// 		),
+// 		'location' => array(
+// 			array(
+// 				array(
+// 					'param' => 'post_type',
+// 					'operator' => '==',
+// 					'value' => 'case_study',
+// 				),
+// 			),
+// 		),
+// 		'menu_order' => 0,
+// 		'position' => 'normal',
+// 		'style' => 'default',
+// 		'label_placement' => 'top',
+// 		'instruction_placement' => 'label',
+// 		'hide_on_screen' => '',
+// 		'active' => 1,
+// 		'description' => '',
+// 	));
 
-}
+// }
 
-// END ACF Stuff
+// // END ACF Stuff
