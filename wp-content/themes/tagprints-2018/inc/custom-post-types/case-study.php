@@ -43,41 +43,6 @@ function codex_custom_init_case_study() {
 
 add_action('init', 'codex_custom_init_case_study');
 
-add_action('add_meta_boxes', 'case_study_meta_box');
-function case_study_meta_box()
-{
-	add_meta_box('case-study-link', 'Case Study Meta', 'cb_case_study', 'case_study', 'normal', 'high');
-}
-
-function cb_case_study($post)
-{
-	$values = get_post_custom($post->ID);
-	$cs_brand_color = isset($values['cs_brand_color']) ? esc_attr($values['cs_brand_color'][0]) : '';
-
-	?>
-
-	<label for="cs_brand_color">Brand Color:</label>
-	<input type="text" name="cs_brand_color" id="cs_brand_color" value="<?php echo $cs_brand_color; ?>" style="width:100%;"/>
-
-	<?php
-}
-
-
-add_action('save_post', 'case_study_meta_box_save');
-function case_study_meta_box_save($post_id)
-{
-	// now we can actually save the data
-	$allowed = array(
-		'a' => array(// on allow a tags
-			'href' => array() // and those anchords can only have href attribute
-		)
-	);
-
-	if (isset($_POST['cs_brand_color'])) {
-		update_post_meta($post_id, 'cs_brand_color', wp_kses($_POST['cs_brand_color'], $allowed));
-	}
-}
-
 function add_case_study_tax() {
 
 	register_taxonomy('case_study_category', 'case_study', array(
