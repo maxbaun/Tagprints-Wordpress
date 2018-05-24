@@ -63,18 +63,6 @@ function brandColor(){
     return $brandColor;
 }
 
-// WPAUTOP
-remove_filter('the_content','wpautop');
-add_filter('the_content','my_custom_formatting');
-
-function my_custom_formatting($content){
-    if(get_post_type()!='post')
-    return $content; //no autop
-    else
-    return wpautop($content);
-}
-// END WPAUTOP
-
 function get_container_class(){
     return 'col-md-8 col-md-offset-2';
 }
