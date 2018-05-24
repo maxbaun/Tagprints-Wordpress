@@ -46,7 +46,8 @@ $cutlass_includes = array(
 	'inc/widgets/index.php',
 	'inc/s3.php',
 	'inc/check-plugins.php',
-	'inc/api.php'
+	'inc/api.php',
+	'inc/netlify.php'
 );
 
 foreach ($cutlass_includes as $file) {
