@@ -42,12 +42,12 @@ function callback_featured_section($atts,$content=null){
   if(isset($center) && $center=='true')
     $class .= ' text-center';
   $html .= '<div class="featured-section '.$size.' '.$borders.'">';
-  
-  // if(isset($contain) && $contain != 'true')  
+
+  // if(isset($contain) && $contain != 'true')
   $html .= '<div class="container">'; // container
 
   if(isset($contain) && $contain == 'true')
-    $html .= '<div class="row"><div class="'.get_container_class().'">';
+    $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
   $html .= '<div class="row">';
   $html .= '<div class="col-md-4">';
@@ -59,7 +59,7 @@ function callback_featured_section($atts,$content=null){
   $html .= '</div>';
 
   if(isset($contain) && $contain == 'true')
-    $html .= '</div></div>'; 
+    $html .= '</div></div>';
 
   $html .= '</div>';
   $html .= '</div>';

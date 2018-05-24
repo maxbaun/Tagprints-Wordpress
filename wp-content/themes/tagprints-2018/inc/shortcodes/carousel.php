@@ -24,7 +24,7 @@ function callback_carousel($atts,$content=null){
     $carouselId = 'carousel-' . rand(0,100);
 
   if(isset($contain) && $contain == 'true')
-    $html .= '<div class="row"><div class="'.get_container_class().'">';
+    $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
   $html .= '<div id="'.$carouselId.'" class="carousel slide '.$borderTop.'" data-ride="carousel" data-interval="'.$auto_play.'">';
   $html .= '<div class="carousel-inner" role="listbox">';
@@ -145,7 +145,7 @@ function callback_featured_slide($atts,$content=null){
   $html .= '<div class="item item-featured '.$activeClass.'" style="'.$style.'">';
 
   if(isset($contain) && $contain == 'true')
-    $html .= '<div class="row"><div class="'.get_container_class().'">';
+    $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
   $html .= '<div class="carousel-image">';
 

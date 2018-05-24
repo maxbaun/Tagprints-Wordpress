@@ -8,7 +8,7 @@ function callback_contain($atts,$content=null){
 
 
   $html = '';
-  $html .= '<div class="row"><div class="'.get_container_class().'">';
+  $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
   $html .= do_shortcode($content);
   $html .= '</div></div>';
 

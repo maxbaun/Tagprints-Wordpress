@@ -28,7 +28,7 @@ function callback_hero($atts,$content=null){
     }
 
     if(isset($contain) && $contain == 'true'){
-        $html .= '<div class="row"><div class="'.get_container_class().'">'; //contain
+        $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">'; //contain
     }
 
     if(!empty($center) && $center == 'true') {

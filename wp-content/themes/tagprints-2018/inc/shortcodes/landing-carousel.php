@@ -14,7 +14,7 @@ function callback_landing_carousel($atts,$content=null){
 
   //if contain
   if(isset($contain) && $contain == 'true')
-    $html .= '<div class="row"><div class="'.get_container_class().'">';
+    $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
 
   $multipleClass = (isset($multiple) && $multiple === 'true') ? 'multiple' : '';
@@ -98,7 +98,7 @@ add_shortcode( 'landing-carousel-item' , 'callback_landing_carousel_item' );
 //     $carouselId = 'carousel-' . rand(0,100);
 //
 //   if(isset($contain) && $contain == 'true')
-//     $html .= '<div class="row"><div class="'.get_container_class().'">';
+//     $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 //
 //   if($size != '0')
 //     $multipleClass = 'multiple';

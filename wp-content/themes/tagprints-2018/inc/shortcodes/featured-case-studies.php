@@ -158,7 +158,7 @@ function callback_featured_case_studies($atts,$content=null){
 
   $html = '';
   if(isset($contain) && $contain =='true')
-    $html .= '<div class="'.get_container_class().'">';
+    $html .= '<div class="'.'col-md-8 col-md-offset-2'.'">';
 
   $html .= '<div class="featured-case-studies">' . do_shortcode( $content ) . '</div>';
 

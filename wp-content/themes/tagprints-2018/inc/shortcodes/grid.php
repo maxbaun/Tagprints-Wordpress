@@ -73,7 +73,7 @@ function callback_row($atts,$content=null){
   $html .= '</div>';
 
   if(isset($contain) && $contain == 'true')
-    $html = '<div class="row"><div class="'.get_container_class().'">' . $html . '</div></div>';
+    $html = '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">' . $html . '</div></div>';
 
   return force_balance_tags( $html );
 }
@@ -98,7 +98,32 @@ function callback_column($atts,$content=null){
 add_shortcode('column','callback_column' );
 
 
+function getImageBackgroundStyle($id,$post = true,$offset=0, $setHeight = true){
+    if($post) {
+		$imageId = get_post_thumbnail_id($id);
+	}
+    else {
+		$imageId = $id;
+	}
+    $image = wp_get_attachment_image_src($imageId,'full');
 
+	if (!isset($image) || !$image) {
+		return '';
+	}
+
+    $imageUrl = $image[0];
+    $imageWidth = $image[1];
+    $imageHeight = $image[2];
+
+    $h = $imageHeight + $offset;
+
+    if($setHeight){
+        $style = 'background-image:url('.$imageUrl.'); height: '.$h.'px;background-size:' . $imageWidth . 'px ' . $imageHeight .'px;';
+    } else {
+        $style = 'background-image:url('.$imageUrl.'); background-size: cover; ';
+    }
+    return $style;
+}
 
 
 ?>

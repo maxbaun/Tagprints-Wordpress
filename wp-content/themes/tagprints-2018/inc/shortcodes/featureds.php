@@ -14,7 +14,7 @@ function callback_media($atts,$content=null){
   // start media content
 
   if(isset($contain) && $contain=='true')
-    $html .='<div class="row"><div class="'.get_container_class().'">';
+    $html .='<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
   if($media_type=='video'){
     $html .= '<div class="video embed-responsive embed-responsive-16by9 text-center">';

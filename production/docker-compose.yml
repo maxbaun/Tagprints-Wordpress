@@ -21,7 +21,7 @@ services:
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
       BACKUP_NAME: tagprints-backup
       PATHS_TO_BACKUP: /var/lib/mysql
-      RESTORE: false
+      RESTORE: 'false'
       S3_BUCKET_NAME: tagprints-backup
     volumes:
       - 'data:/var/lib/mysql'
@@ -33,7 +33,7 @@ services:
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
       BACKUP_NAME: tagprints-backup
       PATHS_TO_BACKUP: /var/lib/mysql
-      RESTORE: true
+      RESTORE: 'true'
       S3_BUCKET_NAME: tagprints-backup
     volumes:
       - 'data:/var/lib/mysql'
@@ -53,8 +53,6 @@ services:
       WORDPRESS_DB_USER: '${WORDPRESS_DB_NAME}'
       WORDPRESS_DB_PASSWORD: '${WORDPRESS_DB_PASS}'
       APP_URL: //tagprints.com
-    ports:
-      - '80:80'
     links:
       - mysql
     working_dir: /var/www/html

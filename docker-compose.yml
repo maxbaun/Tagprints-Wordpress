@@ -11,11 +11,11 @@ services:
   web:
     image: 'wordpress:latest'
     environment:
-      - WORDPRESS_DB_NAME=tagprints
-      - WORDPRESS_DB_USER=tagprints
-      - WORDPRESS_DB_PASSWORD=tagprints
-      - WORDPRESS_DEBUG="true"
-      - APP_URL="//tagprints.com"
+      WORDPRESS_DB_NAME: tagprints
+      WORDPRESS_DB_USER: tagprints
+      WORDPRESS_DB_PASSWORD: tagprints
+      WORDPRESS_DEBUG: 'true'
+      APP_URL: //tagprints.com
     volumes:
       - '/vagrant/wp-content/plugins:/var/www/html/wp-content/plugins'
       - >-

@@ -30,33 +30,6 @@ function theme_image($img){
     return $path;
 }
 
-function getImageBackgroundStyle($id,$post = true,$offset=0, $setHeight = true){
-    if($post) {
-		$imageId = get_post_thumbnail_id($id);
-	}
-    else {
-		$imageId = $id;
-	}
-    $image = wp_get_attachment_image_src($imageId,'full');
-
-	if (!isset($image) || !$image) {
-		return '';
-	}
-
-    $imageUrl = $image[0];
-    $imageWidth = $image[1];
-    $imageHeight = $image[2];
-
-    $h = $imageHeight + $offset;
-
-    if($setHeight){
-        $style = 'background-image:url('.$imageUrl.'); height: '.$h.'px;background-size:' . $imageWidth . 'px ' . $imageHeight .'px;';
-    } else {
-        $style = 'background-image:url('.$imageUrl.'); background-size: cover; ';
-    }
-    return $style;
-}
-
 function brandColor(){
     global $post;
     $brandColor = get_post_meta($post->ID,'cs_brand_color',true);

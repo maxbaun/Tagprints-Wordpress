@@ -5,12 +5,12 @@ function callback_text_block($atts,$content=null){
     'class' => '',
     'style' => '',
     'contain' => 'false'
-  ), $atts ));  
+  ), $atts ));
 
 
   $html = '';
   if(isset($contain) && $contain =='true')
-    $html .= '<div class="row"><div class="'.get_container_class().'">';
+    $html .= '<div class="row"><div class="'.'col-md-8 col-md-offset-2'.'">';
 
   $html .= '<div class="text-block '.$class.'" style="'.$style.'">'; //text
   $html .= do_shortcode($content);
