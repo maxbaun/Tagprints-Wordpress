@@ -47,9 +47,9 @@ $cutlass_includes = array(
 	// 'inc/s3.php',
 	// 'inc/check-plugins.php',
 	'lib/api.php',
-	'lib/netlify.php',
 	'lib/app-redirect.php',
-	'lib/admin-bar.php'
+	'lib/deploy/admin-bar.php',
+	'lib/deploy/admin-scripts.php'
 );
 
 foreach ($cutlass_includes as $file) {

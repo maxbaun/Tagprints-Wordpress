@@ -53,6 +53,8 @@ services:
       WORDPRESS_DB_USER: '${WORDPRESS_DB_NAME}'
       WORDPRESS_DB_PASSWORD: '${WORDPRESS_DB_PASS}'
       APP_URL: //tagprints.com
+      NETLIFY_STAGING_HOOK: '${NETLIFY_STAGING_HOOK}'
+      NETLIFY_PRODUCTION_HOOK: '${NETLIFY_PRODUCTION_HOOK}'
     links:
       - mysql
     working_dir: /var/www/html
