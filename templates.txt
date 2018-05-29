@@ -98,3 +98,58 @@ Contact Template {
 }
 
 Default Tempalte -> render content inside white section
+
+Photobooth Pro Template {
+	pbpHero Group {
+		content WYSIWYG
+		button1: Link
+		button2: Link
+	}
+	pbpSlider Group {
+		image: Image
+		slides: Repeater {
+			content: WYSIWYG
+		}
+	}
+	pbpGallery Group {
+		title: Text
+		categories: Repeater {
+			title: Text
+			featuredImage: Image
+			images: Repeater {
+				image: Image
+			}
+		}
+	}
+	pbpBonuses {
+		title: Text
+		subtitle: Text
+		note: Text
+		blocks: Repeater {
+			icon
+			title
+			text
+		}
+	}
+	pbpPromises {
+		title: Text
+		subtitle: Text
+		blocks: Repeater {
+			icon
+			title
+			text
+		}
+	}
+	pbpRental {
+		options: Repeater {
+			title
+			content
+		}
+	}
+	pbpFaqs {
+		faqs: Repeater {
+			header
+			content
+		}
+	}
+}

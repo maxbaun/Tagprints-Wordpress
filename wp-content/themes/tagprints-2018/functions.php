@@ -24,7 +24,7 @@ $cutlass_includes = array(
 	// 'inc/replace-images.php',
 	// 'inc/utils.php',
 	// 'inc/deregister-scripts.php',
-	// 'inc/init.php',
+	'inc/init.php',
 	// 'inc/theme-settings.php',
 	// 'inc/component-scripts.php',
 	// 'inc/our-work-component.php',
