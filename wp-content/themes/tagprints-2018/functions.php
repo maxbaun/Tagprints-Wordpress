@@ -49,7 +49,8 @@ $cutlass_includes = array(
 	'lib/api.php',
 	'lib/app-redirect.php',
 	'lib/deploy/admin-bar.php',
-	'lib/deploy/admin-scripts.php'
+	'lib/deploy/admin-scripts.php',
+	'lib/autop.php'
 );
 
 foreach ($cutlass_includes as $file) {
