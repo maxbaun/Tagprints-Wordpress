@@ -72,3 +72,17 @@ function tagprints_prefix_add_rest_orderby_params($params) {
 
     return $params;
 }
+
+function add_menu_order_to_return() {
+	register_rest_field(
+	  array('case_study'), // add to these post types
+	  'menu_order', // name of field
+	  array(
+		'get_callback' => function ($post) {
+		  return intval(get_post_field('menu_order', $post['id'])); // value of field
+		}
+	  )
+	);
+  }
+
+  add_action('rest_api_init', 'add_menu_order_to_return');
