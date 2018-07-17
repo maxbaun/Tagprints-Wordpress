@@ -1,0 +1,70 @@
+Just a simple file to remember things :)
+
+== BASICS
+
+Media Cleaner first checks the install to find REFERENCES to files, and add them to the database (mclean_refs table). Once done, it analyzes each media entry (or each file found in /uploads). It creates an ISSUE (mclean_scan table) for each media entry or file which couldn't be matched with a reference. 
+
+== NOTES
+
+Many functions start by "wpmc_". That's because the plugin used to be without any classes, but actually little by little it would be better to rename those functions.
+
+The refs table was not existing before. Everything was store using WordPress transients. It was not good for performance so everything was changed. There are still mentions to them, to clear those transients on old install, but starting from June 2018 we can remove them (wpmc_reset_issues).
+
+core.php (both in / and in /meowapps) looks for references. scan.php checks those references and create issues. Maybe those files should be renamed someday, for example: core.php -> core.php + scan_refs.php (in two files, the first one keeping the core, helpers, etc) and scan.php -> check_issues.php.
+
+WordPress doesn't allow code that is "blocked" by a serial key on its repositories. Of course, it's totally accepted in a self-hosted version (Meow Apps Store for instance). To be able to get around that, the implementation of some Pro code called from Free portion of the code should be made through filters or actions. The best (and almost only) example in Media Cleaner is the wpmc_check_file filter, which is called like this in the wp_ajax_wpmc_scan_do function:
+$result = ( apply_filters( 'wpmc_check_file', true, $piece ) ? 1 : 0 );
+The code is implemented in the meowapps folder (which is only available in the PRO plugin).
+
+== MAIN FUNCTIONS
+
+* wpmc_delete( $id )
+Move the file referenced by the issue ID () to the trash.
+
+* wpmc_ignore( $id )
+Ignore this issue.
+
+* wpmc_recover( $id )
+Recover a file/media from the Cleaner trash. ID is the internal ID of the trashed item (not the Media ID)
+
+* wpmc_check_media( $attachmentId, $checkOnly = false )
+Check if a Media ID has references. If yes, an issue will be created. Return true or false.
+
+* wpmc_reset_issues()
+Remove all issues.
+
+== CORE HELPERS
+
+* get_urls_from_html( $html )
+Returns an array of URLs (from IMG SRC or SRCSET) from HTML.
+
+* wpmc_trashdir
+Returns the folder of the trash.
+
+* wpmc_find_attachment_id_by_file()
+Find the media ID from the filepath.
+
+* clean_url_from_resolution( $url )
+Remove the resolution part of a thumbnail created by WP (300x300 for example). That way, we basically get the main file.
+
+* wpmc_clean_uploaded_filename( $fullpath )
+From a fullpath to the shortened and cleaned path (for example '2013/02/file.png')
+
+* wpmc_clean_url( $url )
+From a url to the shortened and cleaned url (for example '2013/02/file.png')
+
+== REFERENCES
+
+This part is the slowest.
+
+* add_reference_url( $urlOrUrls, $type, $origin = null, $extra = null )
+Add an URL (or many URLs) to the DB, as a reference. Type is not SO important, but it represents the type of placeholder where the reference was found. For example: CONTENT (ID), CONTENT (URL), PAGE BUILDER, THEME, GALLERY, META, META (ID), META (URL), WIDGET, etc. Those are used for debugging purposed and can be also displayed to the users.
+
+* add_reference_id( $idOrIds, $type, $origin = null, $extra = null )
+Same as above, with a media ID instead of an URL.
+
+In one PHP process (asynchronous call), Cleaner will analyzes a certain number of posts, many calls to those add functions will be made but the actual insertion of the references will only be made at the end of the process (with the write_references function).
+
+== ISSUES
+
+
