@@ -127,6 +127,14 @@ add_filter('acf/format_value/type=group', function ($value, $post_id, $field) {
 	return $value;
 }, 100, 3);
 
+add_filter('acf/format_value/type=gallery', function ($value, $post_id, $field) {
+	if (empty($value)) {
+		return null;
+	}
+
+	return $value;
+}, 100, 3);
+
 add_filter('acf/format_value/type=component_field', function ($value, $post_id, $field) {
 	if (empty($value)) {
 		return null;
