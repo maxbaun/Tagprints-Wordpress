@@ -50,7 +50,8 @@ $cutlass_includes = array(
 	'lib/app-redirect.php',
 	'lib/deploy/admin-bar.php',
 	'lib/deploy/admin-scripts.php',
-	'lib/autop.php'
+	'lib/autop.php',
+	'lib/admin-columns.php'
 );
 
 foreach ($cutlass_includes as $file) {
