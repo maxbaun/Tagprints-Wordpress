@@ -9,7 +9,7 @@ function tagprints_column_page($defaults) {
 add_action('manage_pages_custom_column', 'tagprings_column_page_template', 10, 2);
 function tagprings_column_page_template($column_name, $post_ID) {
 	if ($column_name == 'column_template') {
-		$custom_field_values = get_post_meta($post_ID, 'page_template');
+		$custom_field_values = get_page_template_slug($post_ID);
 		if (!empty($custom_field_values)) {
 			echo '<p> '. join(', ', $custom_field_values) .' </p>';
 		}
