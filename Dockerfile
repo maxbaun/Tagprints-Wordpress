@@ -1,7 +1,7 @@
 FROM wordpress
 
-COPY wp-content/plugins /usr/src/wordpress/wp-content/plugins
-COPY wp-content/themes/tagprints-2018 /usr/src/wordpress/wp-content/themes/tagprints-2018
+COPY docroot/wp-content/plugins /usr/src/wordpress/wp-content/plugins
+COPY docroot/wp-content/themes/tagprints-2018 /usr/src/wordpress/wp-content/themes/tagprints-2018
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
