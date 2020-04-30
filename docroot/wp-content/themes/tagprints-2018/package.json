@@ -69,7 +69,7 @@
     "html-react-parser": "0.4.1",
     "imagemin-pngcrush": "^4.1.0",
     "immutable": "3.8.2",
-    "jquery": "^1.12.4",
+    "jquery": "^3.5.0",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "jshint-stylish": "^2.0.1",
     "lazypipe": "^1.0.1",
